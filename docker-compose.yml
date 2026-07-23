@@ -1,0 +1,13 @@
+services:
+  python-api:
+    build: .
+    image: next-python-api
+    env_file:
+      - .env
+    ports:
+      - "${PORT:-4300}:${PORT:-4300}"
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
