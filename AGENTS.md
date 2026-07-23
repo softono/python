@@ -20,6 +20,7 @@ app/services/                 business logic per domain: auth_service, session_s
 app/api/routes/                route modules mirroring express's route files: auth.py, tfa.py,
                                login_link.py, oauth.py, passkey.py, account.py, notes.py, public.py
 app/utils/                    client_info, dates, pagination, response, validate
+logs/                          app.log (uvicorn/app logging output — never write logs to project root)
 ```
 
 Handlers return raw `JSONResponse` (via `send_result`/`send_error`), never FastAPI's `response_model` — that would force the envelope's extra top-level keys into a nested shape.

@@ -8,8 +8,11 @@ from starlette.exceptions import HTTPException
 
 from app.api.routes import account, auth, login_link, notes, oauth, passkey, public, tfa
 from app.core.config import settings
+from app.core.logging_config import setup_logging
 from app.core.middleware import DeviceCookieMiddleware, RateLimitMiddleware
 from app.utils.response import send_error
+
+setup_logging()
 
 app = FastAPI(title="Next API (Python)")
 
